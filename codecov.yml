@@ -1,6 +1,8 @@
 comment:
   layout: header, changes, diff, sunburst
 coverage:
+  - src/.*
+  - include/.*
   ignore:
   - 3rdparty/.*
   - test/.*
