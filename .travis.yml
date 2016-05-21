@@ -37,6 +37,6 @@ after_success:
   # Push coverage info on codecov.io
   - if [ "${coverage}" = "ON" ]; then
         $HOME/codecov
-             -p ../devtools_build
+             -p build
              -x /usr/bin/gcov-4.8;
     fi
