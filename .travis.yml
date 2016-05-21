@@ -26,12 +26,9 @@ script:
   - make -j5
   - cd ./bin/
   - ./test_ml-lib
-after_success:
  # Push coverage info on codecov.io
-  - if [ "${coverage}" = "ON" ]; then
-        $HOME/codecov
-             -p /home/travis/build/DolotovEvgeniy/ml-lib
-             -x /usr/bin/gcov-4.8;
-    fi
+  - gcov /home/travis/build/DolotovEvgeniy/ml-lib
+after_success:
+- bash <(curl -s https://codecov.io/bash)
 notifications:
   email: dolotov.evgeniy@gmail.com
