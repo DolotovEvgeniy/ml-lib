@@ -59,6 +59,9 @@ set(TESTS       "test_${PROJECT_NAME}")
 add_subdirectory(test)
 add_subdirectory(src)
 
+# Include directory
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
+FILE(GLOB hdrs "*.h*" "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h*")
 
 #
 # Report variables
