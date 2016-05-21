@@ -38,7 +38,7 @@ endforeach()
 #
 if ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR
     "${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
-    set(CMAKE_CXX_FLAGS "-std=c++11 -Wall -Werror")
+    set(CMAKE_CXX_FLAGS "-Wall -Werror")
     if(COVERAGE)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
         set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage")
@@ -59,6 +59,9 @@ set(TESTS       "test_${PROJECT_NAME}")
 add_subdirectory(test)
 add_subdirectory(src)
 
+# Include directory
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
+FILE(GLOB hdrs "*.h*" "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h*")
 
 #
 # Report variables

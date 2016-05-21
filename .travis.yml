@@ -1,38 +1,42 @@
 sudo: false
+
 notifications:
   email: false
+
 language: cpp
+
+os:
+  - linux
+  - osx
+
 compiler:
   - gcc
   - clang
+
 addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
     packages:
       - g++-4.8
+
 install:
   - wget https://codecov.io/bash -O $HOME/codecov; chmod +x $HOME/codecov
+
 before_script:
   - coverage=OFF
   - if [ "$CXX" = "g++" ]; then
         export CXX="g++-4.8" CC="gcc-4.8";
-        coverage=ON;
+        if [ $TRAVIS_OS_NAME = linux ]; then coverage=ON; fi
     fi
-  - mkdir ./build
-  - cd ./build
+
 script:
-  - cmake cmake -DCOVERAGE=ON -DCMAKE_BUILD_TYPE=Debug ..
-  - make -j5
-  - cd ./bin/
-  - ./test_ml-lib
-  - cd ../..
+  - ./build.sh
+
 after_success:
- # Push coverage info on codecov.io
+  # Push coverage info on codecov.io
   - if [ "${coverage}" = "ON" ]; then
         $HOME/codecov
-             -p ..
+             -p build
              -x /usr/bin/gcov-4.8;
     fi
-notifications:
-  email: dolotov.evgeniy@gmail.com
