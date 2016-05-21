@@ -87,7 +87,7 @@ def GoogleTest():
             Header("Testing {}".format(file_))
             _try(subprocess.call("./{}".format(file_)))
 
-clean()
+# clean()
 Header("Check \"Google C++ Style\"")
 CheckGoogleStyle()
 BuildCMakeProject()
