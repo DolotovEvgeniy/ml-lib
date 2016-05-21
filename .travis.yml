@@ -26,7 +26,6 @@ script:
   - make -j5
   - cd ./bin/
   - ./test_ml-lib
-  - cd ..
 after_success:
  # Push coverage info on codecov.io
   - if [ "${coverage}" = "ON" ]; then
