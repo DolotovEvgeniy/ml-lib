@@ -1,6 +1,6 @@
 set(target ${LIBRARY})
 
-file(GLOB srcs "*.c*")
+file(GLOB srcs "*.cpp")
 
 add_library(${target} STATIC ${srcs})
 
