@@ -53,15 +53,18 @@ add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/3rdparty/gtest")
 set(LIBRARY_DEPS "gtest")
 set(LIBRARY "${PROJECT_NAME}")
 set(TESTS       "test_${PROJECT_NAME}")
+
+#
+# Include directory
+#
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
+FILE(GLOB hdrs "*.h*" "${CMAKE_CURRENT_SOURCE_DIR}/include/ml/*.h*")
 #
 # Include all subdirectory
 #
 add_subdirectory(test)
 add_subdirectory(src)
-
-# Include directory
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
-FILE(GLOB hdrs "*.h*" "${CMAKE_CURRENT_SOURCE_DIR}/include/*.h*")
+add_subdirectory(samples)
 
 #
 # Report variables
