@@ -7,7 +7,7 @@
 #include <iostream>
 
 using std::vector;
-
+using namespace ml;
 TEST(ML_LINEAR_ALGEBRA, Can_Create_Matrix) {
     // Arrange
     size_t cols = 1;
@@ -257,6 +257,30 @@ TEST(ML_LINEAR_ALGEBRA, Multiply_Identity_Matrix_Is_Identity) {
 
     // Assert
     EXPECT_EQ(identity, multMat);
+}
+
+TEST(ML_LINEAR_ALGEBRA, Can_Mult_On_Scalar) {
+    // Arrange
+    size_t rows = 2;
+    size_t cols = 3;
+
+    double a = 2;
+    double value = 3;
+
+    Matrix mat(rows, cols, value);
+
+    // Act
+    Matrix multMat = a*mat;
+
+    // Assert
+    EXPECT_EQ(cols, multMat.cols());
+    EXPECT_EQ(rows, multMat.rows());
+
+    for (size_t i = 0; i < multMat.cols(); i++) {
+        for (size_t j = 0; j < multMat.rows(); j++) {
+            EXPECT_DOUBLE_EQ(a*value, multMat.at(j, i));
+        }
+    }
 }
 
 TEST(ML_LINEAR_ALGEBRA, Can_Left_Add_Scalar_To_Matrix) {

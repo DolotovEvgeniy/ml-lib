@@ -7,7 +7,7 @@
 
 #include <vector>
 #include <iostream>
-
+namespace ml {
 class Matrix {
  public:
     Matrix();
@@ -39,5 +39,5 @@ std::ostream& operator <<(std::ostream& os, const Matrix& mat);
 Matrix operator *(const double& a, const Matrix& mat);
 Matrix operator +(const double& a, const Matrix& mat);
 Matrix operator +(const Matrix& mat, const double& a);
-
+}  // namespace ml
 #endif  // INCLUDE_ML_MATRIX_H_

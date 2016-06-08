@@ -10,7 +10,7 @@
 
 using std::vector;
 using std::ostream;
-
+using ml::Vector;
 Vector::Vector(int dims, double defaultValue) {
     dims_ = dims;
     data_ = vector<double>(dims_, defaultValue);

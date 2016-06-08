@@ -5,7 +5,7 @@
 
 #include <vector>
 #include <iostream>
-
+namespace ml {
 class Vector {
  public:
     explicit Vector(int dims, double defaultValue = 0);
@@ -33,5 +33,5 @@ Vector operator +(const double& a, const Vector& mat);
 Vector operator +(const Vector& mat, const double& a);
 
 double dot(const Vector& vec1, const Vector& vec2);
-
+}  // namespace ml
 #endif  // INCLUDE_ML_VECTOR_H_

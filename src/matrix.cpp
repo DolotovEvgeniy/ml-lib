@@ -10,7 +10,7 @@
 
 using std::vector;
 using std::ostream;
-
+using  ml::Matrix;
 Matrix::Matrix() {
     cols_ = 1;
     rows_ = 1;
@@ -95,7 +95,7 @@ bool Matrix::operator !=(const Matrix& mat) const {
     return !(*this == mat);
 }
 
-ostream& operator <<(ostream& os, const Matrix& mat) {
+ostream& ml::operator <<(ostream& os, const Matrix& mat) {
     for (size_t i = 0; i < mat.cols(); i++) {
         os << "| ";
         for (size_t j = 0; j < mat.rows(); j++) {
@@ -107,8 +107,8 @@ ostream& operator <<(ostream& os, const Matrix& mat) {
     return os;
 }
 
-Matrix operator *(const double& a, const Matrix& mat) {
-    Matrix multiplyMat(mat.cols(), mat.rows());
+Matrix ml::operator *(const double& a, const Matrix& mat) {
+    Matrix multiplyMat(mat.rows(), mat.cols());
     for (size_t i = 0; i < mat.rows(); i++) {
         for (size_t j = 0; j < mat.cols(); j++) {
             multiplyMat.at(i, j) = a*mat.at(i, j);
@@ -135,11 +135,11 @@ Matrix Matrix::operator *(const Matrix& mat) const {
     return multiplyMat;
 }
 
-Matrix operator +(const double& a, const Matrix& mat) {
+Matrix ml::operator +(const double& a, const Matrix& mat) {
     return Matrix(mat.rows(), mat.cols(), a) + mat;
 }
 
-Matrix operator +(const Matrix& mat, const double& a) {
+Matrix ml::operator +(const Matrix& mat, const double& a) {
     return Matrix(mat.rows(), mat.cols(), a) + mat;
 }
 
