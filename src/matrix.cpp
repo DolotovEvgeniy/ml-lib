@@ -11,6 +11,12 @@
 using std::vector;
 using std::ostream;
 
+Matrix::Matrix() {
+    cols_ = 1;
+    rows_ = 1;
+    data_ = vector<double>(cols_*rows_, 0);
+}
+
 Matrix::Matrix(int rows, int cols, double defaultValue) {
     cols_ = cols;
     rows_ = rows;

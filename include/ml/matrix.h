@@ -10,6 +10,7 @@
 
 class Matrix {
  public:
+    Matrix();
     Matrix(int rows, int cols, double defaultValue = 0);
     Matrix(const Matrix& mat);
     double at(int row, int col) const;

@@ -148,6 +148,18 @@ TEST(ML_LINEAR_ALGEBRA, Can_Compare_Not_Equal_Matrix) {
     EXPECT_NE(mat1, mat2);
 }
 
+TEST(ML_LINEAR_ALGEBRA, Can_Compare_Matrix_With_Not_Same_Size) {
+    // Arrange
+    size_t rows = 1;
+    size_t cols = 2;
+
+    Matrix mat1(rows, cols);
+    Matrix mat2(cols, rows);
+
+    // Act & Assert
+    EXPECT_NE(mat1, mat2);
+}
+
 TEST(ML_LINEAR_ALGEBRA, Can_Equate_Matrix) {
     // Arrange
     size_t rows = 1;
@@ -158,7 +170,8 @@ TEST(ML_LINEAR_ALGEBRA, Can_Equate_Matrix) {
     Matrix mat(rows, cols, value);
 
     // Act
-    Matrix mat1 = mat;
+    Matrix mat1;
+    mat1 = mat;
 
     // Assert
     EXPECT_EQ(mat, mat1);
