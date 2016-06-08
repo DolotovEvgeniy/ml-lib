@@ -10,18 +10,18 @@
 
 class Matrix {
  public:
-    Matrix(int cols, int rows, double defaultValue = 0);
+    Matrix(int rows, int cols, double defaultValue = 0);
     Matrix(const Matrix& mat);
-    double at(int i, int j) const;
-    double& at(int i, int j);
+    double at(int row, int col) const;
+    double& at(int row, int col);
     Matrix& operator =(const Matrix& mat);
     Matrix operator +(const Matrix& mat) const;
     Matrix operator -(const Matrix& mat) const;
     Matrix operator *(const Matrix& mat) const;
     bool operator ==(const Matrix& mat) const;
     bool operator !=(const Matrix& mat) const;
-    int cols() const;
-    int rows() const;
+    size_t cols() const;
+    size_t rows() const;
     Vector row(int i);
     Vector col(int j);
     std::vector<double> data() const;
@@ -29,8 +29,8 @@ class Matrix {
 
  private:
     std::vector<double> data_;
-    int cols_;
-    int rows_;
+    size_t cols_;
+    size_t rows_;
 };
 
 std::ostream& operator <<(std::ostream& os, const Matrix& mat);
