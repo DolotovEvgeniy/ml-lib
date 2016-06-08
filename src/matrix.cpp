@@ -1,6 +1,6 @@
 // Copyright 2016 Dolotov Evgeniy
 
-#include "ml/linear_algebra.h"
+#include "ml/matrix.h"
 
 #include <assert.h>
 #include <math.h>
