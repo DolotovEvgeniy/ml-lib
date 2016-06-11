@@ -11,6 +11,7 @@
 using std::vector;
 using std::ostream;
 using  ml::Matrix;
+using  ml::Vector;
 Matrix::Matrix() {
     cols_ = 1;
     rows_ = 1;
@@ -162,4 +163,24 @@ Matrix Matrix::identity(int dims) {
     }
 
     return mat;
+}
+
+Vector Matrix::row(int i) {
+    Vector vec(this->cols());
+
+    for (size_t j = 0; j < cols(); j++) {
+        vec.at(j) = this->at(i, j);
+    }
+
+    return vec;
+}
+
+Vector Matrix::col(int i) {
+    Vector vec(this->rows());
+
+    for (size_t j = 0; j < rows(); j++) {
+        vec.at(j) = this->at(j, i);
+    }
+
+    return vec;
 }

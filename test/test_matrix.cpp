@@ -65,6 +65,22 @@ TEST(ML_LINEAR_ALGEBRA, Can_Create_Identity_Matrix) {
     }
 }
 
+TEST(ML_LINEAR_ALGEBRA, Can_Set_Matrix_Element) {
+    // Arrange
+    size_t rows = 1;
+    size_t cols = 2;
+
+    double value = 1;
+
+    Matrix mat(rows, cols, value);
+
+    // Act
+    mat.at(0, 1) = 2;
+
+    // Assert
+    EXPECT_EQ(mat.at(0, 1), 2);
+}
+
 TEST(ML_LINEAR_ALGEBRA, Can_Add_Matrix) {
     // Arrange
     size_t rows = 1;
